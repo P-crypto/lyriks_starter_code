@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
 
-
 import PlayPause from "./PlayPause";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
 import { useGetTopChartsQuery } from "../redux/services/shazamCore";
@@ -18,23 +17,16 @@ const TopPlay = () => {
   const { data } = useGetTopChartsQuery();
   const TopPlays = data?.slice(0, 5);
 
-
   const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
-  
   // *Scroll to top on loading
   const divRef = useRef(null);
-  // useEffect(()=> {
-  //   scrollIntoView(divRef.current, {
-  //     behavior: 'smooth',
-  //   });
-  // })
-
-  // useEffect(() => {
-  //   window.scrollTo(0, 0)
-  // })
-
+  useEffect(() => {
+    divRef.current.scrollIntoView({
+      behavior: "smooth",
+    });
+  }, []);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -48,7 +40,7 @@ const TopPlay = () => {
     <div ref={divRef} className="xl:ml-6 ml-0">
       topPlay
     </div>
-  )
+  );
 };
 
 export default TopPlay;
