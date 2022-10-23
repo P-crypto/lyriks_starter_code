@@ -26,7 +26,7 @@ const TopPlay = () => {
     divRef.current.scrollIntoView({
       behavior: "smooth",
     });
-  }, []);
+  }, [data]);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
