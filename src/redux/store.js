@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import { shazamCoreAPI } from "./services/shazamCore";
 
 import playerReducer from "./features/playerSlice";

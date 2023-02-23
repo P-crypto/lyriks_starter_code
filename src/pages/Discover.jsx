@@ -26,7 +26,7 @@ const Discover = () => {
           className="bg-black text-gray-300 p-3 text-sm rounded-lg outline-none sm:mt-0 mt-5"
         >
           {genres.map((genre) => (
-            <option>{genre.title}</option>
+            <option key={genre.title}>{genre.title}</option>
           ))}
         </select>
       </div>
